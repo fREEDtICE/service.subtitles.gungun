@@ -15,11 +15,8 @@ import time
 
 
 base_url = sys.argv[0]
-print(base_url)
 addon_handle = int(sys.argv[1])
-print(sys.argv[1])
 args = urlparse.parse_qs(sys.argv[2][1:])
-print(sys.argv[2])
 
 try:
     loc = [i for i in requests.get('http://www.rrys.tv', allow_redirects=False).text.split() if 'location.href' in i ][0]
@@ -47,15 +44,15 @@ UserAgent  = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)'
 def log(module, msg):
     xbmc.log((u"%s::%s - %s" % (__scriptname__,module,msg,)).encode('utf-8'),level=xbmc.LOGERROR )
 
-print(__scriptid__)
-print(__scriptname__)
-print(__cwd__)
-print(__profile__)
-print(__resource__)
-print(__temp__)
-print(ZIMUZU_API)
+log(sys._getframe().f_code.co_name, "script id is %s" % __scriptid__)
+log(sys._getframe().f_code.co_name, "__scriptname__ id is %s" %__scriptname__)
+log(sys._getframe().f_code.co_name, "__cwd__ id is %s" % __cwd__)
+log(sys._getframe().f_code.co_name, "__profile__ id is %s" % __profile__)
+log(sys._getframe().f_code.co_name, "__resource__ id is %s" % __resource__)
+log(sys._getframe().f_code.co_name, "__temp__ id is %s" % __temp__)
+log(sys._getframe().f_code.co_name, "ZIMUZU_API id is %s" % ZIMUZU_API)
 
-log(sys._getframe().f_code.co_name, "base url is %s" % base_url)
+log(sys._getframe().f_code.co_name, "sys.argv[0] is %s" % sys.argv[0])
 log(sys._getframe().f_code.co_name, "sys.argv[1] is %s" % sys.argv[1])
 log(sys._getframe().f_code.co_name, "sys.argv[2] is %s" % sys.argv[2])
 
